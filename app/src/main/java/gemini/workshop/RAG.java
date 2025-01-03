@@ -45,7 +45,7 @@ public class RAG {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
 
-        URL url = new URI("https://github.com/glaforge/gemini-workshop-for-java-developers/raw/main/attention-is-all-you-need.pdf").toURL();
+        URL url = new URI("https://github.com/ArupCog/gemini-workshop-for-java-developers/raw/main/vantage-test-cases.pdf").toURL();
         ApachePdfBoxDocumentParser pdfParser = new ApachePdfBoxDocumentParser();
         Document document = pdfParser.parse(url.openStream());
         //Document document = pdfParser.parse(new FileInputStream("/tmp/attention-is-all-you-need.pdf"));
@@ -104,10 +104,13 @@ public class RAG {
 
         System.out.println("Ready!\n");
         List.of(
-            "What neural network architecture can be used for language models?",
-            "What are the different components of a transformer neural network?",
-            "What is attention in large language models?",
-            "What is the name of the process that transforms text into vectors?"
+            "Leverage the historical test cases as a reference point for understanding existing functionality and potential test scenarios, which contains test scenarios for creating prospects."+
+            "Consider the below points while writting the test cases."+
+            "1)Write detailed test cases for update and delete prospects in a structured readable format.Consider all positive and negative scenarios while creating the test cases"+
+            "2)Include both positive and negative test cases."+
+            "3)For each test case, provide a unique ID and a clear description."+
+            "4)Detail each test step, including expected results.Make sure each test steps are in separate lines while generating the test cases"+
+            "5)Incorporate iCABS steps where applicable, providing clear and concise instructions."
         ).forEach(query ->
             System.out.printf("%n=== %s === %n%n %s %n%n", query, expert.ask(query)));
     }
